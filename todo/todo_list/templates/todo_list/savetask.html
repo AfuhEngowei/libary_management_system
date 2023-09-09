@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>save task</title>
+</head>
+<body>
+    <h1> your task was saved. </h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Created At</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for task in savetask %}
+      <tr>
+        <td>{{ task.pk }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.created_at }}</td>
+        <td>{{ task.completed }}</td>
+        <td>
+          <a href="{% url 'deletetask' task.id %}"><button> Delete</button></a>
+          <a href="{% url 'edittask' task.id %}"><button> Edit</button></a>
+        </td>
+      </tr>
+      {% endfor %}
+      <tbody>
+        
+      </tbody>
+    </table>
+    <a href="{%url 'addtask'%}"><button>add task</button></a>
+</body>
+</html>

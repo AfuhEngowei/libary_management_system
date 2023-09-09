@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  {% for task in savetask %}
+    <div class="main-block">
+        <h1>Delete Task</h1>
+        <form action="{% url 'deletetask' %}" method="delete">
+          {% csrf_token %}
+          </div>
+          <hr>
+          <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
+          <input type="text" name="title" id="name" placeholder="task title" required/>
+          <label id="icon" for="name"><i class="fas fa-user"></i></label>
+          <input type="text" name="description" id="name" placeholder="description " required/>
+          <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
+          <div class="btn-block">
+            <button type="submit" >Submit</button>
+            {% endfor %}
+</body>
+</html>
